@@ -1,0 +1,269 @@
+/* ----- CSS Variables ----- */
+:root {
+    --bg-color: #0b141a; /* Dark teal-blue background */
+    --primary-teal: #00e5ff;
+    --primary-blue: #0088ff;
+    --text-color: #e0f7fa;
+    --text-muted: #a5d8dd;
+    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ----- Base Styles ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html[dir="rtl"] body {
+    font-family: 'Cairo', var(--font-main);
+}
+
+/* ----- Background Canvas ----- */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none; /* Let clicks pass through */
+}
+
+/* ----- Navigation Bar ----- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: var(--primary-teal);
+    text-shadow: 0 0 8px var(--primary-teal);
+}
+
+.nav-btn.active {
+    color: var(--primary-teal);
+    text-shadow: 0 0 10px var(--primary-teal);
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary-teal);
+}
+
+/* ----- Main Layout ----- */
+#app-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 80px 20px 20px 20px;
+}
+
+/* ----- Pages & Transitions ----- */
+.page {
+    width: 100%;
+    max-width: 900px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.page.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.center-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ----- Typography ----- */
+.glow-text {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 15px var(--primary-teal), 0 0 30px var(--primary-blue);
+    min-height: 1.3em; /* Keep space for typing animation */
+}
+
+.glow-text-sub {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+    margin-bottom: 40px;
+}
+
+/* Typing Animation Cursor */
+.typing-cursor {
+    display: inline-block;
+    width: 4px;
+    height: 1em;
+    background-color: var(--primary-teal);
+    animation: blink 0.8s infinite;
+    vertical-align: text-bottom;
+    margin-inline-start: 5px; /* Adapts automatically in LTR and RTL */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ----- Buttons ----- */
+.button-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.glow-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(0, 229, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.glow-btn i {
+    font-size: 1.2rem;
+}
+
+.glow-btn:hover {
+    transform: scale(1.05) translateY(-2px);
+    background: rgba(0, 229, 255, 0.15);
+    border-color: var(--primary-teal);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5), 0 0 40px rgba(0, 136, 255, 0.3);
+    color: #fff;
+}
+
+.glow-btn.disabled {
+    opacity: 0.5;
+    cursor: default;
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none; /* Prevents clicking on specific button */
+}
+
+/* ----- About Page Specifics ----- */
+.about-content {
+    background: rgba(11, 20, 26, 0.6);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.bio {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 600px;
+    color: var(--text-color);
+}
+
+.skills-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.skill-card {
+    background: rgba(0, 136, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
+    background: rgba(0, 136, 255, 0.2);
+}
+
+.about-social {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* ----- Responsive Design ----- */
+@media (max-width: 768px) {
+    .glow-text {
+        font-size: 2.2rem;
+    }
+    
+    .button-group, .about-social {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .glow-btn {
+        width: 80%;
+    }
+    
+    .navbar {
+        padding: 15px;
+    }
+}

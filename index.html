@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="FM Network - A network for Minecraft servers and events.">
+    <title>FM Network</title>
+
+    <!-- External Fonts and Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Canvas for Particles -->
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <button class="nav-btn active" onclick="switchPage('home')" data-translate="home">Home</button>
+            <button class="nav-btn" onclick="switchPage('about')" data-translate="about">About</button>
+        </div>
+        <div class="lang-toggle">
+            <!-- Language Toggle Button -->
+            <button onclick="toggleLang()" id="langBtn" class="nav-btn" data-translate="langBtn">عربي</button>
+        </div>
+    </nav>
+
+    <!-- Main Application Container -->
+    <main id="app-container">
+
+        <!-- ================= HOME PAGE ================= -->
+        <section id="home-page" class="page active">
+            <div class="center-content">
+                <!-- Typed Heading -->
+                <h1 id="typing-heading" class="glow-text"></h1>
+
+                <!-- Subtitle -->
+                <p id="subtitle" class="subtitle glow-text-sub" data-translate="subtitle">A network for Minecraft
+                    servers and events.</p>
+
+                <!-- Buttons -->
+                <div class="button-group">
+                    <a href="https://discord.gg/6AUTxGa3" target="_blank" class="glow-btn">
+                        <i class="fab fa-discord"></i>
+                        <span data-translate="discord">Discord</span>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="glow-btn">
+                        <i class="fab fa-instagram"></i>
+                        <span data-translate="instagram">Instagram</span>
+                    </a>
+                    <a href="#" class="glow-btn disabled">
+                        <span data-translate="soon">Soon</span>
+                    </a>
+                    <a href="#" class="glow-btn disabled">
+                        <span data-translate="soon">Soon</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT PAGE ================= -->
+        <section id="about-page" class="page hidden">
+            <div class="center-content about-content">
+                <!-- Profile Name -->
+                <h2 class="glow-text">Fouad_M</h2>
+
+                <!-- Bio -->
+                <p class="bio" data-translate="bio">Hey, I'm Fouad — a developer interested in Python and web
+                    development. Currently learning editing and building cool stuff.</p>
+
+                <!-- Skills Section (Animated Grid, No Progress Bars) -->
+                <h3 data-translate="skills" class="skills-title glow-text-sub">Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-card" data-translate="python">Python</div>
+                    <div class="skill-card" data-translate="webdev">Web Development</div>
+                    <div class="skill-card" data-translate="videoedit">Video Editing (Beginner)</div>
+                </div>
+
+                <!-- Social Accounts -->
+                <div class="social-buttons about-social">
+                    <a href="https://instagram.com" target="_blank" class="glow-btn">
+                        <i class="fab fa-instagram"></i>
+                        <span data-translate="instagram_account">Instagram</span>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="glow-btn">
+                        <i class="fab fa-youtube"></i>
+                        <span data-translate="youtube_account">YouTube</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Main Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
